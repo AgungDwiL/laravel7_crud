@@ -9,14 +9,18 @@
     </div>
     </div>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-
+    
+    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="row">
 
             <div class="col-6 col-sm-6 col-md-6">
                 <div class=mb-3>
                     <strong>Nama Produk</strong>
                     <input type="text" name="product_name" class="form-control" placeholder="Nama Produk">
+                    @error('product_name')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -24,6 +28,9 @@
                 <div class=mb-3>
                     <strong>Kode Produk</strong>
                     <input type="text" name="product_code" class="form-control" placeholder="Kode Produk">
+                    @error('product_code')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -48,6 +55,6 @@
         </div>
 
     </form>
-    
+
 </div>
 @endsection

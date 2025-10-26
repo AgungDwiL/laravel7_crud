@@ -23,17 +23,21 @@
             <th>Action</th>
         </tr>
 
+        @foreach ($products as $product)
         <tr>
-            <td>T-shirt</td>
-            <td>1404S</td>
-            <td>Lorem Ipsum Sederhana</td>
-            <td></td>
+            <td>{{ $product->product_name }}</td>
+            <td>{{ $product->product_code }}</td>
+            <td>{{ $product->details}}</td>
+            <td><img src="{{ asset('images/'.$product->logo)}}" class="img-thumbnail" style="width: 100px; height: auto;"></td>
             <td>
                 <a class="btn btn-info" href="">Show</a>
                 <a class="btn btn-primary">Edit</a>
                 <a class="btn btn-danger">Delete</a>
             </td>
-        </tr>
+        </tr
+            
+        @endforeach
+        >
     </table>
 @endsection
 

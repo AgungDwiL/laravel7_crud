@@ -32,7 +32,7 @@
             <td>
                 <a class="btn btn-info" href="{{ route('product.show')}}">Show</a>
                 <a class="btn btn-primary" href="{{ URL::to('edit/product/'. $product->id)}}">Edit</a>
-                <a class="btn btn-danger" href="{{ route('product.delete')}}">Delete</a>
+                <a class="btn btn-danger" href="{{ URL::to('delete/product/'. $product->id)}}" onclick="return confirm(Anda Yakin?)">Delete</a>
             </td>
         </tr
             

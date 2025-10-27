@@ -22,7 +22,7 @@ Route::get('products', 'ProductController@index')->name('product.index');
 Route::get('create', 'ProductController@create')->name('product.create');
 Route::post('create', 'ProductController@store')->name('product.store');
 Route::get('edit/product/{id}', 'ProductController@edit');
-Route::get('delete', 'ProductController@delete')->name('product.delete');
+Route::get('delete/product/{id}', 'ProductController@delete');
 Route::get('show', 'ProductController@show')->name('product.show');
 
 Auth::routes();

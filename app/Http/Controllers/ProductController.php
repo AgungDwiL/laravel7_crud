@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Products as Product;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -53,14 +54,17 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findorFail($id);
-        return view('product.edit',compact('product'));
+        return view('product.edit', compact('product'));
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $products = Product::all();
-
-        return view('product.index', compact('products'));
+        $data = Product::findorFail($id);
+        $image = public_path('images').'/'.$data->logo;
+        $image = str_replace('\\', '/', $image);
+        unlink($image);
+        $products = Product::find($id)->delete();
+        return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus!');
     }
 
     public function show()

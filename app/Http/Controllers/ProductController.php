@@ -49,4 +49,24 @@ class ProductController extends Controller
         return redirect()->route('product.index')
                          ->with('success', 'Produk berhasil ditambahkan!');
     }
+
+    public function edit($id)
+    {
+        $product = Product::findorFail($id);
+        return view('product.edit',compact('product'));
+    }
+
+    public function delete()
+    {
+        $products = Product::all();
+
+        return view('product.index', compact('products'));
+    }
+
+    public function show()
+    {
+        $products = Product::all();
+
+        return view('product.index', compact('products'));
+    }
 }

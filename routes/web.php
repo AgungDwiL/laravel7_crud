@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('products', 'ProductController@index')->name('product.index');
 Route::get('create', 'ProductController@create')->name('product.create');
 Route::post('create', 'ProductController@store')->name('product.store');
-Route::get('edit', 'ProductController@edit')->name('product.edit');
+Route::get('edit/product/{id}', 'ProductController@edit');
 Route::get('delete', 'ProductController@delete')->name('product.delete');
 Route::get('show', 'ProductController@show')->name('product.show');
 

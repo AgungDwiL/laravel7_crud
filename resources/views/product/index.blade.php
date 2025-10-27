@@ -31,7 +31,7 @@
             <td><img src="{{ asset('images/'.$product->logo)}}" class="img-thumbnail" style="width: 100px; height: auto;"></td>
             <td>
                 <a class="btn btn-info" href="{{ route('product.show')}}">Show</a>
-                <a class="btn btn-primary" href="{{ route('product.edit')}}">Edit</a>
+                <a class="btn btn-primary" href="{{ URL::to('edit/product/'. $product->id)}}">Edit</a>
                 <a class="btn btn-danger" href="{{ route('product.delete')}}">Delete</a>
             </td>
         </tr

@@ -106,10 +106,10 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Produk berhasil diupdate!');
     }
 
-    public function show()
+    public function show($id)
     {
-        $products = Product::all();
+        $product = Product::findOrFail($id);
 
-        return view('product.index', compact('products'));
+        return view('product.show', compact('product', 'id'));
     }
 }

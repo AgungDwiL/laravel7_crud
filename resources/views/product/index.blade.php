@@ -30,9 +30,9 @@
             <td>{{ $product->details}}</td>
             <td><img src="{{ asset('images/'.$product->logo)}}" class="img-thumbnail" style="width: 100px; height: auto;"></td>
             <td>
-                <a class="btn btn-info" href="{{ route('product.show')}}">Show</a>
+                <a class="btn btn-info" href="{{ URL::to('show/product/'. $product->id)}}">Show</a>
                 <a class="btn btn-primary" href="{{ URL::to('edit/product/'. $product->id)}}">Edit</a>
-                <a class="btn btn-danger" href="{{ URL::to('delete/product/'. $product->id)}}" onclick="return confirm(Anda Yakin?)">Delete</a>
+                <a class="btn btn-danger" href="{{ URL::to('delete/product/'. $product->id)}}" onclick="return confirm('Anda Yakin?')">Delete</a>
             </td>
         </tr
             

@@ -39,6 +39,9 @@
                 <div class=mb-3>
                     <strong>Detail</strong>
                     <input type="text" name="details" class="form-control" placeholder="Detail Produk" value="{{$product->details}}">
+                    @error('details')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 

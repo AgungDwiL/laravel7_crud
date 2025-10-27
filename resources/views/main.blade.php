@@ -7,11 +7,18 @@
     <title>Laravel 7 CRUD</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <bs5-row>
             <h1>Tambahkan Produk Kamu</h1>
-            <a class="btn btn-success" href="{{route('product.index')}}">Tambahkan Produk Kamu</a>
-        </div>
+            <a class="btn btn-success" href="{{route('product.create')}}">Tambahkan Produk Kamu</a>
+        </bs5-row>
+        <br>
+        <br>
+        <bs5-row>
+            <h1>Lihat Produk</h1>
+            <a class="btn btn-primary" href="{{route('product.index')}}">Lihat Produk</a>
+        </bs5-row>
+
     </div>
     
 </body>

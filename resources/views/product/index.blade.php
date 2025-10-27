@@ -30,9 +30,9 @@
             <td>{{ $product->details}}</td>
             <td><img src="{{ asset('images/'.$product->logo)}}" class="img-thumbnail" style="width: 100px; height: auto;"></td>
             <td>
-                <a class="btn btn-info" href="">Show</a>
-                <a class="btn btn-primary">Edit</a>
-                <a class="btn btn-danger">Delete</a>
+                <a class="btn btn-info" href="{{ route('product.show')}}">Show</a>
+                <a class="btn btn-primary" href="{{ route('product.edit')}}">Edit</a>
+                <a class="btn btn-danger" href="{{ route('product.delete')}}">Delete</a>
             </td>
         </tr
             

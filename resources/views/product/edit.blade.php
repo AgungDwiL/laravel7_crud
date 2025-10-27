@@ -10,8 +10,9 @@
     </div>
 
     
-    <form action="" method="" enctype="multipart/form-data">
+    <form action="{{route('update.product', $product->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="row">
 
             <div class="col-6 col-sm-6 col-md-6">

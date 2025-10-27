@@ -67,6 +67,45 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus!');
     }
 
+    public function update(Request $request, $id)
+    {
+        // ✅ Validasi input
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'product_code' => 'required|string|max:255',
+            'details' => 'required|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // tidak wajib
+        ]);
+
+        // ✅ Ambil data lama
+        $product = Product::findOrFail($id);
+
+        // ✅ Kalau ada file logo baru, hapus yang lama dan upload yang baru
+        if ($request->hasFile('logo')) {
+            // Hapus logo lama (kalau ada)
+            if ($product->logo && file_exists(public_path('images/'.$product->logo))) {
+                unlink(public_path('images/'.$product->logo));
+            }
+
+            // Upload logo baru
+            $imageName = time().'.'.$request->logo->extension();
+            $request->logo->move(public_path('images'), $imageName);
+
+            $product->logo = $imageName;
+        }
+
+        // ✅ Update field lain
+        $product->product_name = $request->product_name;
+        $product->product_code = $request->product_code;
+        $product->details = $request->details;
+
+        // ✅ Simpan semua perubahan
+        $product->save();
+
+        // ✅ Redirect sukses
+        return redirect()->route('product.index')->with('success', 'Produk berhasil diupdate!');
+    }
+
     public function show()
     {
         $products = Product::all();
